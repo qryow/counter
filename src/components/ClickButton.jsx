@@ -7,11 +7,19 @@ const ClickButton = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <button className='btn' onClick={() => dispatch(increment())}>+</button>
-      <br />
-      <button className='btn btn2' onClick={() => dispatch(clear())}>Clear</button>
-    </div>
+    <>
+      <a className='plus' onClick={() => dispatch(increment())} href="#">
+          <span className='plus__span'>+</span>
+          <div class="liquid"></div>
+      </a>
+      <a className='clear' onClick={() => dispatch(clear())} href="#">
+        <span> </span>
+        <span> </span>
+        <span> </span>
+        <span> </span>
+        Clear
+      </a>
+    </>
   )
 }
 

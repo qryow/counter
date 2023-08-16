@@ -10,6 +10,26 @@
 body {
   background: darkcyan;
   background: linear-gradient(-90deg, darkcyan, black);
+  background: linear-gradient(57deg, #263566, #18213f, #001258, #10131d, #253877);
+  background-size: 1000% 1000%;
+  -webkit-animation: ani 20s ease infinite;
+  -moz-animation: ani 20s ease infinite;
+  animation: ani 20s ease infinite;
+}
+@-webkit-keyframes ani {
+  0%{background-position:4% 0%}
+  50%{background-position:97% 100%}
+  100%{background-position:4% 0%}
+}
+@-moz-keyframes ani {
+  0%{background-position:4% 0%}
+  50%{background-position:97% 100%}
+  100%{background-position:4% 0%}
+}
+@keyframes ani { 
+  0%{background-position:4% 0%}
+  50%{background-position:97% 100%}
+  100%{background-position:4% 0%}
 }
 .counter__wrapper {
   width: 100%;
@@ -31,20 +51,174 @@ body {
 	margin-bottom: 10px;
 }
 
-.btn {
+
+
+.plus {
+  font: 900 30px consolas;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 30px 0px;
   position: relative;
-  width: 300px;
-  height: 80px;
-  font-size: 20px;
-  display: block;
-  border-radius: 10px;
-  margin: 0 auto;
-  color: #fff;
-  border: 0;
-  background: #0f7261;
-  padding: 20px 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: 0.2s;
+  margin-bottom: 30px;
+}
+.plus__span {
+  position: relative;
+}
+.plus .plus__span {
+  left: 47%;
+  z-index: 0;
+  color: #252b3d;
 }
 
-.btn2 {
-  background-color: rgb(23, 70, 62);
+.plus .liquid {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background: #7293ff;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.7);
+  z-index: -1;
+  transition: 0.6s;
+}
+
+.plus .liquid::after,
+.plus .liquid::before {
+  position: absolute;
+  content: "";
+  width: 130%;
+  height: 200%;
+  top: 0;
+  left: 55px;
+  transform: translate(-25%, -75%);
+}
+
+.plus .liquid::after {
+  border-radius: 45%;
+  background: rgba(20, 20, 20, 1);
+  box-shadow: 0 0 10px 5px #7293ff, inset 0 0 5px #7293ff;
+  animation: animate 5s linear infinite;
+  opacity: 0.8;
+}
+
+.plus .liquid::before {
+  border-radius: 40%;
+  box-shadow: 0 0 10px rgba(26, 26, 26, 0.5),
+      inset 0 0 5px rgba(26, 26, 26, 0.5);
+  background: rgba(26, 26, 26, 0.5);
+
+  animation: animate 7s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+      transform: translate(-25%, -75%) rotate(0);
+  }
+  100% {
+      transform: translate(-25%, -75%) rotate(360deg);
+  }
+}
+.plus:hover .liquid {
+  top: -120px;
+}
+
+.plus:hover {
+  box-shadow: 0 0 5px #7293ff, inset 0 0 5px #7293ff;
+  transition-delay: 0.2s;
+}
+
+
+
+.clear {
+	position: relative;
+	padding: 30px 100px;
+	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
+	color: #7293ff;
+  background-color: #111a35;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font: 700 30px consolas;
+	overflow: hidden;
+}
+
+.clear span:nth-child(1) {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 3px;
+	background: linear-gradient(to right, #171618, #7293ff);
+	animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+.clear span:nth-child(2) {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 3px;
+	background: linear-gradient(to bottom, #171618, #7293ff);
+	animation: animate2 2s linear infinite;
+	animation-delay: 1s;
+}
+@keyframes animate2 {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(100%);
+	}
+}
+
+.clear span:nth-child(3) {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 3px;
+	background: linear-gradient(to left, #171618, #7293ff);
+	animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3 {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+.clear span:nth-child(4) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 3px;
+	background: linear-gradient(to top, #171618, #7293ff);
+	animation: animate4 2s linear infinite;
+	animation-delay: 1s;
+}
+
+@keyframes animate4 {
+	0% {
+		transform: translateY(100%);
+	}
+	100% {
+		transform: translateY(-100%);
+	}
 }
